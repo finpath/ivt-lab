@@ -28,10 +28,12 @@ public class TorpedoStore {
     }
   }
 
+  //Randomszam generator
   Random generator = new Random();
 
   public boolean fire(int numberOfTorpedos){
     if(numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount){
+      //exception dobas kijavitva
       throw new IllegalArgumentException("numberOfTorpedos");
     }
 
@@ -41,7 +43,7 @@ public class TorpedoStore {
     double r = generator.nextDouble();
 
     if (r >= FAILURE_RATE) {
-      // successful firing
+      // successful firing megoldva
       this.torpedoCount -= numberOfTorpedos;
       success = true;
     } else {
